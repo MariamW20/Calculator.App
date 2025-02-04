@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 val buttonList = listOf(
-   "C","(",")","/",
+   "DEL","(",")","/",
     "7","8","9","*",
     "4","5","6","+",
     "1","2","3","-",
@@ -54,7 +53,7 @@ fun Calculator(modifier: Modifier = Modifier, viewModel: CalculatorViewModel) {
                 maxLines = 5,
                 overflow = TextOverflow.Ellipsis
             )
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.weight(0.5f))
 
             Text(
                 text = resultText.value?:"",
@@ -88,17 +87,17 @@ fun CalculatorButton(btn : String, onClick : ()-> Unit) {
             contentColor = Color.White,
             containerColor = getColor(btn)
         ) {
-            Text(text = btn, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            Text(text = btn, fontSize = 30.sp, fontWeight = FontWeight.Bold)
         }
     }
 }
 
 fun getColor(btn : String) : Color{
-    if(btn == "C" || btn == "AC")
-        return Color(73,161,9)
+    if(btn == "DEL" || btn == "AC")
+        return Color(229,29,14)
     if(btn == "(" || btn == ")")
         return Color.Gray
     if(btn == "/" || btn == "*" || btn == "+" || btn == "-" || btn == "=")
-        return Color(20,47,68)
-    return Color(0xFF00C8C9)
+        return Color(73,161,9)
+    return Color(20,47,68)
 }
