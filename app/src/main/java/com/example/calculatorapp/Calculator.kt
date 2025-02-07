@@ -79,7 +79,7 @@ fun Calculator(modifier: Modifier = Modifier, viewModel: CalculatorViewModel) {
 }
 @Composable
 fun CalculatorButton(btn : String, onClick : ()-> Unit) {
-    Box(modifier = Modifier.padding(10.dp)){
+    Box(modifier = Modifier.padding(5.dp)){
         FloatingActionButton(
             onClick = onClick,
             modifier = Modifier.size(80.dp),
@@ -87,7 +87,7 @@ fun CalculatorButton(btn : String, onClick : ()-> Unit) {
             contentColor = Color.White,
             containerColor = getColor(btn)
         ) {
-            Text(text = btn, fontSize = 30.sp, fontWeight = FontWeight.Bold)
+            Text(text = btn, fontSize = 20.sp, fontWeight = FontWeight.Bold)
         }
     }
 }
