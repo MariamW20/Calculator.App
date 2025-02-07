@@ -28,6 +28,16 @@ class CalculatorViewModel  : ViewModel() {
                 if (it.isNotEmpty()) {
                     _equationText.value = it.substring(0, it.length - 1)
 
+                    // Recalculate result if equation is not empty
+                    _resultText.value = if (_equationText.value!!.isNotEmpty()) {
+                        try {
+                            calculateResult(_equationText.value!!)
+                        } catch (e: Exception) {
+                            "Error"
+                        }
+                    } else {
+                        "0" // Reset result if equation is empty
+                    }
                 }
                 return
             }
